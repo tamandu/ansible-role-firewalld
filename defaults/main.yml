@@ -1,0 +1,4 @@
+---
+firewalld_service:
+  dhcpv6-client: disabled
+  ssh: enabled

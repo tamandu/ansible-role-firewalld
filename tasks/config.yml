@@ -1,0 +1,18 @@
+---
+- name: firewalld service
+  firewalld: >
+    zone=public
+    service={{ item.key }}
+    state={{ item.value }}
+    permanent=true
+    immediate=true
+  with_dict: "{{ firewalld_service | default({}) }}"
+
+- name: firewalld port
+  firewalld: >
+    zone=public
+    port={{ item.key }}
+    state={{ item.value }}
+    permanent=true
+    immediate=true
+  with_dict: "{{ firewalld_port | default({}) }}"
